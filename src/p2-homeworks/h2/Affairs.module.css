@@ -1,0 +1,23 @@
+.someClass {
+
+}
+.affair{
+    display: flex;
+}
+.item {
+    margin: 10px;
+    width: 80px;
+}
+.high {
+    color: red;
+}
+.middle {
+    color: gold;
+}
+.low {
+    color: aqua;
+}
+.button {
+    margin: 10px;
+    height: 30px;
+}

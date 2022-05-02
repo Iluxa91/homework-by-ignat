@@ -1,0 +1,20 @@
+.superInput {
+    margin: 10px;
+    background: aqua;
+}
+
+.errorInput {
+    margin: 10px;
+    border: 2px solid red;
+    background: thistle;
+}
+
+.error {
+    color: red;
+    height: 20px;
+
+}
+.input:active {
+    outline: none;
+    border: blue solid 2px;
+}
