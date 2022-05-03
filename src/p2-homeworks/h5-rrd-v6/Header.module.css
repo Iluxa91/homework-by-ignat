@@ -1,0 +1,26 @@
+.link {
+    text-decoration: none;
+    color: seagreen;
+    margin: 10px;
+}
+.link:hover {
+    color: blue;
+}
+.block {
+    width: 20px;
+    height: 20px;
+    margin: 10px;
+    background: seagreen;
+}
+.header {
+    display: flex;
+    width: 250px;
+    transition-duration: 500ms;
+    transform: translate(-220px);
+
+}
+.header:hover {
+    transition-duration: 500ms;
+    transform: translate(0);
+}
+
