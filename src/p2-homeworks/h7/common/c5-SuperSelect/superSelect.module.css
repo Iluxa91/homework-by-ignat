@@ -1,0 +1,35 @@
+.option {
+    color: black;
+    background: lightgreen;
+}
+
+.option:checked {
+    color: black;
+    background: seagreen;
+}
+
+.option:hover {
+    box-shadow: 0 0 10px 100px yellow inset;
+    transition: all .2s ease-in-out;
+    background: red;
+}
+
+.select {
+    width: 100px;
+    min-width: 15ch;
+    max-width: 30ch;
+    border: 1px solid #777;
+    border-radius: 0.25em;
+    padding: 0.25em 0.5em;
+    font-size: 1.25rem;
+    cursor: pointer;
+    line-height: 1.1;
+    background-color: #fff;
+    background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
+}
+
+select:focus {
+    outline: none;
+    border: lightgreen solid 2px;
+
+}
