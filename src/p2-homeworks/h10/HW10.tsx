@@ -27,7 +27,7 @@ function HW10() {
             {/*should work (должно работать)*/}
             {loading
                 ? (
-                    <div className={s.loaderWrapper}><div className={s.loader}></div></div>
+                    <div className={s.loader}></div>
                 ) : (
                     <div>
                         <SuperButton onClick={setLoading}>set loading...</SuperButton>
