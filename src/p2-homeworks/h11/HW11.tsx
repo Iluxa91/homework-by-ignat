@@ -20,16 +20,17 @@ export function HW11() {
 
             {/*should work (должно работать)*/}
             <div className={s.superRangeContainer}>
-                <span>{value1}</span>
+                <span className={s.span}>{value1}</span>
                 <SuperRange
                     onChangeRange={onChangeRange}
                     value={value1}
+
                     // сделать так чтоб value1 изменялось
                 />
             </div>
 
             <div>
-                <span>{value1}</span>
+                <span className={s.span}>{value1}</span>
                 <SuperDoubleRange
                     min={0}
                     max={100}

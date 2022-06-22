@@ -22,7 +22,7 @@ const SuperDoubleRange: React.FC<SuperDoubleRangePropsType> = (
     let maxVal = arrValue[1]
     const [avg, setAvg] = useState((min + max) / 2);
     let thumbsize = 14;
-    const width = 215;
+    const width = 230;
     const minWidth =
         thumbsize + ((avg - min) / (max - min)) * (width - 2 * thumbsize);
     const minPercent = ((minVal - min) / (avg - min)) * 100;
@@ -30,7 +30,7 @@ const SuperDoubleRange: React.FC<SuperDoubleRangePropsType> = (
     const styles = {
         min: {
             width: minWidth,
-            left: 20,
+            left: 30,
             "--minRangePercent": `${minPercent}%`
         },
         max: {
