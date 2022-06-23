@@ -1,0 +1,18 @@
+.mainBlock {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+
+.container {
+    display: flex;
+}
+.span {
+    margin-left: 20px;
+    display: inline-block;
+    min-width: 30px;
+    max-width: 60px;
+    word-break: break-all;
+}

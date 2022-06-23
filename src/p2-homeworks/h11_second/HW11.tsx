@@ -1,32 +1,34 @@
 import React, {useState} from 'react'
 import SuperRange from './common/c7-SuperRange/SuperRange'
 import SuperDoubleRange from './common/c8-SuperDoubleRange/SuperDoubleRange'
-import s from './HW11.module.css'
+import s from './H11.module.css'
 
 
-export function HW11() {
+export function HW11_second() {
 
     const [value1, setValue1] = useState(0)
-    const [value2, setValue2] = useState(100)
+    const [value, setValue] = useState<number[]>([0, 100])
 
-    const onChangeRange = (value: number) => {
-        if (value < value2) {
-            setValue1(value)
+    const onChangeRange = (value1: number) => {
+        if(value1<value[1]){
+            setValue1(value1)
+            setValue(prev => [value1, prev[1]])
         }
     }
-    const onChangeRange2 = (value: [number, number]) => {
-        setValue1(value[0])
-        setValue2(value[1])
-    }
+    const onChangeRange2 = (event: Event, newValue: number | number[]) => {
+        setValue(newValue as number[]);
+        // @ts-ignore
+        setValue1(newValue[0])
+    };
 
     return (
         <div>
             <hr/>
             homeworks 11
-            <div className={s.main}>
+            <div className={s.mainBlock}>
                 {/*should work (должно работать)*/}
-                <div className={s.input}>
-                    <span className={s.num}>{value1}</span>
+                <div className={s.container}>
+                    <span className={s.span}>{value1}</span>
                     <SuperRange
                         onChangeRange={onChangeRange}
                         value={value1}
@@ -35,15 +37,18 @@ export function HW11() {
                     />
                 </div>
 
-                <div className={s.input}>
-                    <span className={s.num}>{value1}</span>
+                <div className={s.container}>
+                    <span className={s.span}>{value1}</span>
                     <SuperDoubleRange
-                        onChangeRange={onChangeRange2}
-                        value={[value1, value2]}
+                        min={0}
+                        max={100}
+                        step={1}
+                        value={value}
+                        onChangeRange2={onChangeRange2}
 
                         // сделать так чтоб value1 и value2 изменялось
                     />
-                    <span className={s.num}>{value2}</span>
+                    <span className={s.span}>{value[1]}</span>
                 </div>
             </div>
 
