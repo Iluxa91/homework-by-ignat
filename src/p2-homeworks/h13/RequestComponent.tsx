@@ -1,11 +1,10 @@
-import {ChangeEvent, useEffect, useState} from "react";
-import axios from "axios";
+import {ChangeEvent, useState} from "react";
 import {requestsAPI} from "./RequestsAPI";
+import {log} from "util";
 
 export const RequestComponent = () => {
     const [status, setStatus] = useState<boolean>(false)
     const [state, setState] = useState<any>('')
-
 
 
     const onChangeCallback = (e: ChangeEvent<HTMLInputElement>) => {
@@ -14,14 +13,24 @@ export const RequestComponent = () => {
 
     const changeStatusRequest = () => {
         requestsAPI.changeStatus(status)
-            .then (res=>
-                setState(res.data))
+            .then(response =>
+                setState(response.data))
+            // .then(res=>console.log(res))
+            // .catch(reject=>console.error(reject))
+
+            // .catch(error)
+        // {
+        //     console.log({...error});
+        //     console.log(error.response ? error.response.data.errorText : error.message);
+        // }
     }
     return (
         <div>
-            <div>{JSON.stringify(state)}</div>
-            <button onClick={changeStatusRequest}>change status </button>
-            <input type={'checkbox'} checked={status} onChange={onChangeCallback}/>
+
+            <button onClick={changeStatusRequest}>send request</button>
+            <input type={'checkbox'} onChange={onChangeCallback}/>
+            <div>errorText: {JSON.stringify(state.errorText)}</div>
+            <div>info: {JSON.stringify(state.info)}</div>
         </div>
     )
 }

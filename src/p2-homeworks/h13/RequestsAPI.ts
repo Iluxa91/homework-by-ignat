@@ -7,6 +7,6 @@ import axios from "axios";
 
 export const requestsAPI = {
     changeStatus(status:boolean) {
-        return axios.post('https://neko-cafe-back.herokuapp.com/auth/test',{body:{success: status}})
+        return axios.post('https://neko-cafe-back.herokuapp.com/auth/test',{success: status})
     }
 }
