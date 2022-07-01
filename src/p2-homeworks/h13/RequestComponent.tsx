@@ -1,11 +1,10 @@
 import {ChangeEvent, useState} from "react";
 import {requestsAPI} from "./RequestsAPI";
-import {log} from "util";
 
 export const RequestComponent = () => {
     const [status, setStatus] = useState<boolean>(false)
     const [state, setState] = useState<any>('')
-
+    const [error, setError] = useState<any>('')
 
     const onChangeCallback = (e: ChangeEvent<HTMLInputElement>) => {
         setStatus(e.currentTarget.checked)
@@ -13,24 +12,24 @@ export const RequestComponent = () => {
 
     const changeStatusRequest = () => {
         requestsAPI.changeStatus(status)
-            .then(response =>
-                setState(response.data))
-            // .then(res=>console.log(res))
-            // .catch(reject=>console.error(reject))
-
-            // .catch(error)
-        // {
-        //     console.log({...error});
-        //     console.log(error.response ? error.response.data.errorText : error.message);
-        // }
+            .then(response => {
+                console.log(response)
+                setState(response.data)
+                setError('')
+            })
+            .catch((err) => {
+                    console.log(err)
+                    setState('')
+                    setError(err.response.data)
+                }
+            )
     }
     return (
         <div>
-
             <button onClick={changeStatusRequest}>send request</button>
-            <input type={'checkbox'} onChange={onChangeCallback}/>
-            <div>errorText: {JSON.stringify(state.errorText)}</div>
-            <div>info: {JSON.stringify(state.info)}</div>
+            <input type={'checkbox'} value={state} onChange={onChangeCallback}/>
+            <div>errorText: {JSON.stringify(state.errorText ? state.errorText : error.errorText)}</div>
+            <div>info: {JSON.stringify(state.info? state.info:error.info)}</div>
         </div>
     )
 }
